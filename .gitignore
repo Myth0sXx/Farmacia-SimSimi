@@ -1,0 +1,15 @@
+#Maven / Spring Boot
+target/
+*.jar
+
+#IntelliJ
+.idea/
+*.iml
+
+#Logs
+*.log
+logs/
+
+#Sistema operativo
+.DS_Store
+Thumbs.db
