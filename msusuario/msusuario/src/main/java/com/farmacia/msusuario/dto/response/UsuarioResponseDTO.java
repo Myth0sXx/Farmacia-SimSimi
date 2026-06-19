@@ -1,4 +1,4 @@
-package com.farmacia.msusuario.dto;
+package com.farmacia.msusuario.dto.response;
 import com.farmacia.msusuario.model.Rol;
 import lombok.*;
 

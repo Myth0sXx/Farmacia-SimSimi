@@ -1,12 +1,12 @@
 package com.farmacia.msusuario.service.impl;
-import com.farmacia.msusuario.dto.UsuarioRequestDTO;
-import com.farmacia.msusuario.dto.UsuarioResponseDTO;
+import com.farmacia.msusuario.dto.request.UsuarioRequestDTO;
+import com.farmacia.msusuario.dto.response.UsuarioResponseDTO;
 import com.farmacia.msusuario.exception.DuplicateEmailException;
 import com.farmacia.msusuario.exception.ResourceNotFoundException;
 import com.farmacia.msusuario.mapper.UsuarioMapper;
 import com.farmacia.msusuario.model.Usuario;
 import com.farmacia.msusuario.repository.UsuarioRepository;
-import com.farmacia.msusuario.service.UsuarioService;
+import com.farmacia.msusuario.service.interfaces.UsuarioService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

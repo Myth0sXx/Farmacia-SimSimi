@@ -1,6 +1,6 @@
-package com.farmacia.msusuario.service;
-import com.farmacia.msusuario.dto.UsuarioRequestDTO;
-import com.farmacia.msusuario.dto.UsuarioResponseDTO;
+package com.farmacia.msusuario.service.interfaces;
+import com.farmacia.msusuario.dto.request.UsuarioRequestDTO;
+import com.farmacia.msusuario.dto.response.UsuarioResponseDTO;
 import java.util.List;
 
 public interface UsuarioService {

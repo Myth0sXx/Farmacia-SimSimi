@@ -1,7 +1,7 @@
 package com.farmacia.msusuario.mapper;
-import com.farmacia.msusuario.dto.UsuarioResponseDTO;
+import com.farmacia.msusuario.dto.response.UsuarioResponseDTO;
 import com.farmacia.msusuario.model.Usuario;
-import com.farmacia.msusuario.dto.UsuarioRequestDTO;
+import com.farmacia.msusuario.dto.request.UsuarioRequestDTO;
 import org.springframework.stereotype.Component;
 
 @Component

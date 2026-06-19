@@ -1,7 +1,7 @@
 package com.farmacia.msusuario.controller;
-import com.farmacia.msusuario.dto.UsuarioRequestDTO;
-import com.farmacia.msusuario.dto.UsuarioResponseDTO;
-import com.farmacia.msusuario.service.UsuarioService;
+import com.farmacia.msusuario.dto.request.UsuarioRequestDTO;
+import com.farmacia.msusuario.dto.response.UsuarioResponseDTO;
+import com.farmacia.msusuario.service.interfaces.UsuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
