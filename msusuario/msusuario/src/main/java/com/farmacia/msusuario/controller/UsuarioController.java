@@ -2,20 +2,22 @@ package com.farmacia.msusuario.controller;
 import com.farmacia.msusuario.dto.UsuarioRequestDTO;
 import com.farmacia.msusuario.dto.UsuarioResponseDTO;
 import com.farmacia.msusuario.service.UsuarioService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+
 @RestController
 @RequestMapping("/api/usuarios")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
 public class UsuarioController {
-
     private final UsuarioService service;
-
     @Operation(summary = "Crear usuario")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Usuario creado"),
