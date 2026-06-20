@@ -7,9 +7,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.5</version>
+		<groupId>com.farmacia</groupId>
+		<artifactId>farmacia-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 		<relativePath/>
 	</parent>
 
@@ -68,7 +68,6 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.8.5</version>
 		</dependency>
 
 		<!-- Testing -->
