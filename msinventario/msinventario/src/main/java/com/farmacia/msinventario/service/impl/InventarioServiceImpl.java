@@ -1,13 +1,13 @@
 package com.farmacia.msinventario.service.impl;
 import com.farmacia.msinventario.mapper.InventarioMapper;
-import com.farmacia.msinventario.dto.ActualizarStockDTO;
-import com.farmacia.msinventario.dto.InventarioRequestDTO;
-import com.farmacia.msinventario.dto.InventarioResponseDTO;
+import com.farmacia.msinventario.dto.stock.ActualizarStockDTO;
+import com.farmacia.msinventario.dto.request.InventarioRequestDTO;
+import com.farmacia.msinventario.dto.response.InventarioResponseDTO;
 import com.farmacia.msinventario.exception.ResourceNotFoundException;
 import com.farmacia.msinventario.exception.StockInsuficienteException;
 import com.farmacia.msinventario.model.Inventario;
 import com.farmacia.msinventario.repository.InventarioRepository;
-import com.farmacia.msinventario.service.InventarioService;
+import com.farmacia.msinventario.service.interfaces.InventarioService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

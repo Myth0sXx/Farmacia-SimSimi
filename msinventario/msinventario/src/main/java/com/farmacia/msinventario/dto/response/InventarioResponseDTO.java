@@ -1,4 +1,4 @@
-package com.farmacia.msinventario.dto;
+package com.farmacia.msinventario.dto.response;
 import lombok.*;
 import java.time.LocalDateTime;
 
@@ -13,3 +13,4 @@ public class InventarioResponseDTO {
     private Integer cantidad;
     private LocalDateTime actualizadoEn;
 }
+

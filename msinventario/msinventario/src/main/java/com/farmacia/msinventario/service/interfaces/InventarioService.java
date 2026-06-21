@@ -1,8 +1,8 @@
-package com.farmacia.msinventario.service;
+package com.farmacia.msinventario.service.interfaces;
 
-import com.farmacia.msinventario.dto.ActualizarStockDTO;
-import com.farmacia.msinventario.dto.InventarioRequestDTO;
-import com.farmacia.msinventario.dto.InventarioResponseDTO;
+import com.farmacia.msinventario.dto.stock.ActualizarStockDTO;
+import com.farmacia.msinventario.dto.request.InventarioRequestDTO;
+import com.farmacia.msinventario.dto.response.InventarioResponseDTO;
 
 import java.util.List;
 
@@ -17,4 +17,5 @@ public interface InventarioService {
     List<InventarioResponseDTO> listarInventario();
     void descontarStock(ActualizarStockDTO dto);
 }
+
 

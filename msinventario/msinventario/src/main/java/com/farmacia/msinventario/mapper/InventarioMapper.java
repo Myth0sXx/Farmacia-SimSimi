@@ -1,6 +1,6 @@
 package com.farmacia.msinventario.mapper;
-import com.farmacia.msinventario.dto.InventarioRequestDTO;
-import com.farmacia.msinventario.dto.InventarioResponseDTO;
+import com.farmacia.msinventario.dto.request.InventarioRequestDTO;
+import com.farmacia.msinventario.dto.response.InventarioResponseDTO;
 import com.farmacia.msinventario.model.Inventario;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +22,8 @@ public class InventarioMapper {
         return dto;
     }
 }
+
+
 
 
 
