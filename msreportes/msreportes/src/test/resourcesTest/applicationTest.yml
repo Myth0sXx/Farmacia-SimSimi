@@ -9,6 +9,10 @@ spring:
     hibernate:
       ddl-auto: create-drop
 
-  h2:
-    console:
-      enabled: true
+eureka:
+  client:
+    enabled: false
+
+logging:
+  level:
+    root: WARN

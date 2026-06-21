@@ -21,8 +21,8 @@ class UsuarioRepositoryTest {
     void findByEmail() {
 
         Usuario usuario = Usuario.builder()
-                .nombre("Alexandra")
-                .email("alex@correo.cl")
+                .nombre("Juan")
+                .email("juan@correo.cl")
                 .password("123456")
                 .rol(Rol.ADMIN)
                 .build();
@@ -30,7 +30,7 @@ class UsuarioRepositoryTest {
         repository.save(usuario);
 
         Optional<Usuario> encontrado =
-                repository.findByEmail("alex@correo.cl");
+                repository.findByEmail("juan@correo.cl");
 
         assertTrue(encontrado.isPresent());
     }
@@ -40,8 +40,8 @@ class UsuarioRepositoryTest {
     void existsByEmail() {
 
         Usuario usuario = Usuario.builder()
-                .nombre("Alexandra")
-                .email("alex@correo.cl")
+                .nombre("Juan")
+                .email("juan@correo.cl")
                 .password("123456")
                 .rol(Rol.ADMIN)
                 .build();
@@ -49,7 +49,9 @@ class UsuarioRepositoryTest {
         repository.save(usuario);
 
         assertTrue(
-                repository.existsByEmail("alex@correo.cl")
+                repository.existsByEmail("juan@correo.cl")
         );
     }
 }
+
+

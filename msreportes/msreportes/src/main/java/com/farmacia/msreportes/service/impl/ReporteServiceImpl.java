@@ -1,16 +1,16 @@
 package com.farmacia.msreportes.service.impl;
 import com.farmacia.msreportes.client.VentaClient;
-import com.farmacia.msreportes.mapper.ReporteMapper;
 import com.farmacia.msreportes.dto.response.ReporteResponseDTO;
-import com.farmacia.msreportes.exception.ResourceNotFoundException;
+import com.farmacia.msreportes.mapper.ReporteMapper;
 import com.farmacia.msreportes.model.Reporte;
 import com.farmacia.msreportes.repository.ReporteRepository;
 import com.farmacia.msreportes.service.interfaces.ReporteService;
-import lombok.extern.slf4j.Slf4j;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
-import org.springframework.transaction.annotation.Transactional;
+import lombok.extern.slf4j.Slf4j;
+import com.farmacia.msreportes.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
-import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @Service
@@ -23,31 +23,41 @@ public class ReporteServiceImpl implements ReporteService {
     private final VentaClient ventaClient;
 
     @Override
-    public ReporteResponseDTO generarReporteVentas() {
+    @CircuitBreaker(name = "ventaService", fallbackMethod = "fallbackGenerarReporte")
+    public ReporteResponseDTO generarReporte(String tipo) {
 
-        log.info("Solicitando ventas a msventas...");
+        log.info("Generando reporte tipo: {}", tipo);
 
-        String ventas = ventaClient.obtenerVentas();
-
-        log.info("Ventas recibidas: {}", ventas);
+        String contenido = ventaClient.obtenerVentas();
 
         Reporte reporte = Reporte.builder()
-                .tipo("REPORTE_VENTAS")
-                .contenido(ventas)
+                .tipo(tipo)
+                .contenido(contenido)
                 .build();
 
         Reporte guardado = repository.save(reporte);
 
-        log.info("Reporte creado con ID {}", guardado.getId());
+        return mapper.toDTO(guardado);
+    }
+
+    // 🔥 FALLBACK (si ms-ventas falla)
+    public ReporteResponseDTO fallbackGenerarReporte(String tipo, Throwable ex) {
+
+        log.warn("Fallback activado. ms-ventas no disponible: {}", ex.getMessage());
+
+        Reporte reporte = Reporte.builder()
+                .tipo(tipo)
+                .contenido("[]") // respuesta segura
+                .build();
+
+        Reporte guardado = repository.save(reporte);
 
         return mapper.toDTO(guardado);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<ReporteResponseDTO> listarReportes() {
-
-        log.info("Listando reportes");
+    public java.util.List<ReporteResponseDTO> listarReportes() {
 
         return repository.findAll()
                 .stream()
@@ -58,14 +68,10 @@ public class ReporteServiceImpl implements ReporteService {
     @Override
     public ReporteResponseDTO obtenerPorId(Long id) {
 
-        log.info("Buscando reporte ID {}", id);
-
         Reporte reporte = repository.findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Reporte no encontrado")
-                );
+                        new ResourceNotFoundException("Reporte no encontrado"));
 
         return mapper.toDTO(reporte);
     }
 }
-

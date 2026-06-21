@@ -16,4 +16,3 @@ public class SwaggerConfig {
                         .description("Microservicio de gestión de usuarios"));
     }
 }
-
