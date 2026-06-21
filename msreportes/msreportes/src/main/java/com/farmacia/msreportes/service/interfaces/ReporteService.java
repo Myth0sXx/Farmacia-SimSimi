@@ -1,5 +1,5 @@
 package com.farmacia.msreportes.service;
-import com.farmacia.msreportes.dto.ReporteResponseDTO;
+import com.farmacia.msreportes.dto.response.ReporteResponseDTO;
 import java.util.List;
 public interface ReporteService {
     ReporteResponseDTO generarReporteVentas();
