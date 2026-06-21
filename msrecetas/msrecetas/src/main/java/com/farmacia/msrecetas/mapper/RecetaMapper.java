@@ -1,5 +1,5 @@
 package com.farmacia.msrecetas.mapper;
-import com.farmacia.msrecetas.dto.RecetaResponseDTO;
+import com.farmacia.msrecetas.dto.response.RecetaResponseDTO;
 import com.farmacia.msrecetas.model.Receta;
 import org.springframework.stereotype.Component;
 

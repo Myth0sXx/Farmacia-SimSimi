@@ -1,4 +1,4 @@
-package com.farmacia.msrecetas.dto;
+package com.farmacia.msrecetas.dto.request;
 import jakarta.validation.constraints.*;
 
 import lombok.*;
@@ -22,4 +22,5 @@ public class RecetaRequestDTO {
     )
     private String doctorNombre;
 }
+
 

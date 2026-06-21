@@ -1,4 +1,4 @@
-package com.farmacia.msrecetas.dto;
+package com.farmacia.msrecetas.dto.validar;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
@@ -13,3 +13,5 @@ public class ValidarRecetaDTO {
     )
     private Long clienteId;
 }
+
+

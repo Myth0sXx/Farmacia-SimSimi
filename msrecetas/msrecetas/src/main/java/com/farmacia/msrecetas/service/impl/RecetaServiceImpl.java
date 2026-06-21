@@ -1,13 +1,13 @@
 package com.farmacia.msrecetas.service.impl;
-import com.farmacia.msrecetas.dto.RecetaRequestDTO;
-import com.farmacia.msrecetas.dto.RecetaResponseDTO;
-import com.farmacia.msrecetas.dto.ValidarRecetaDTO;
+import com.farmacia.msrecetas.dto.request.RecetaRequestDTO;
+import com.farmacia.msrecetas.dto.response.RecetaResponseDTO;
+import com.farmacia.msrecetas.dto.validar.ValidarRecetaDTO;
 import com.farmacia.msrecetas.exception.ResourceNotFoundException;
 import com.farmacia.msrecetas.mapper.RecetaMapper;
 import com.farmacia.msrecetas.model.EstadoReceta;
 import com.farmacia.msrecetas.model.Receta;
 import com.farmacia.msrecetas.repository.RecetaRepository;
-import com.farmacia.msrecetas.service.RecetaService;
+import com.farmacia.msrecetas.service.interfaces.RecetaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -82,3 +82,4 @@ public class RecetaServiceImpl implements RecetaService {
         log.info("Receta marcada como USADA");
     }
 }
+

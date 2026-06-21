@@ -1,4 +1,4 @@
-package com.farmacia.msrecetas.dto;
+package com.farmacia.msrecetas.dto.response;
 
 import com.farmacia.msrecetas.model.EstadoReceta;
 import lombok.*;
