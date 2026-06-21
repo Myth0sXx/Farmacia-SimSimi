@@ -1,6 +1,6 @@
 package com.farmacia.mspagos.service.impl;
-import com.farmacia.mspagos.dto.PagoRequestDTO;
-import com.farmacia.mspagos.dto.PagoResponseDTO;
+import com.farmacia.mspagos.dto.request.PagoRequestDTO;
+import com.farmacia.mspagos.dto.response.PagoResponseDTO;
 
 import com.farmacia.mspagos.mapper.PagoMapper;
 
@@ -8,7 +8,7 @@ import com.farmacia.mspagos.model.Pago;
 
 import com.farmacia.mspagos.repository.PagoRepository;
 
-import com.farmacia.mspagos.service.PagoService;
+import com.farmacia.mspagos.service.interfaces.PagoService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -89,4 +89,5 @@ public class PagoServiceImpl
                 .map(mapper::toDTO)
                 .toList();
     }
+
 }

@@ -1,7 +1,7 @@
 package com.farmacia.mspagos.controller;
-import com.farmacia.mspagos.dto.PagoRequestDTO;
-import com.farmacia.mspagos.dto.PagoResponseDTO;
-import com.farmacia.mspagos.service.PagoService;
+import com.farmacia.mspagos.dto.request.PagoRequestDTO;
+import com.farmacia.mspagos.dto.response.PagoResponseDTO;
+import com.farmacia.mspagos.service.interfaces.PagoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -43,3 +43,4 @@ public class PagoController {
         );
     }
 }
+

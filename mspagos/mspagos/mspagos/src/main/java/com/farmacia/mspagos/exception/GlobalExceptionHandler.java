@@ -3,7 +3,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,17 +14,13 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>>
-    manejarValidaciones(
+    public ResponseEntity<Map<String, String>> manejarValidaciones(
             MethodArgumentNotValidException ex
     ) {
 
-        log.warn(
-                "Error de validación en request"
-        );
+        log.warn("Error de validación en request");
 
-        Map<String, String> errores =
-                new HashMap<>();
+        Map<String, String> errores = new HashMap<>();
 
         ex.getBindingResult()
                 .getFieldErrors()
@@ -30,31 +28,38 @@ public class GlobalExceptionHandler {
                         errores.put(
                                 error.getField(),
                                 error.getDefaultMessage()
-                        ));
+                        )
+                );
 
         return ResponseEntity
                 .badRequest()
                 .body(errores);
     }
 
+    @ExceptionHandler(PagoException.class)
+    public ResponseEntity<Map<String, String>> manejarPagoException(
+            PagoException ex
+    ) {
+
+        log.warn("Error de pago: {}", ex.getMessage());
+
+        Map<String, String> error = new HashMap<>();
+        error.put("mensaje", ex.getMessage());
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(error);
+    }
+
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, String>>
-    manejarGeneral(
+    public ResponseEntity<Map<String, String>> manejarGeneral(
             Exception ex
     ) {
 
-        log.error(
-                "Error interno del servidor",
-                ex
-        );
+        log.error("Error interno del servidor", ex);
 
-        Map<String, String> error =
-                new HashMap<>();
-
-        error.put(
-                "mensaje",
-                "Error interno del servidor"
-        );
+        Map<String, String> error = new HashMap<>();
+        error.put("mensaje", "Error interno del servidor");
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)

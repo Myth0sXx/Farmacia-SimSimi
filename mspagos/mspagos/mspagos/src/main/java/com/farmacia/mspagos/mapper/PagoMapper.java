@@ -1,8 +1,6 @@
 package com.farmacia.mspagos.mapper;
-
-import com.farmacia.mspagos.dto.PagoRequestDTO;
-import com.farmacia.mspagos.dto.PagoResponseDTO;
-
+import com.farmacia.mspagos.dto.request.PagoRequestDTO;
+import com.farmacia.mspagos.dto.response.PagoResponseDTO;
 import com.farmacia.mspagos.model.EstadoPago;
 import com.farmacia.mspagos.model.Pago;
 
@@ -21,9 +19,7 @@ public class PagoMapper {
                 dto.getVentaId()
         );
 
-        pago.setMonto(
-                dto.getMonto()
-        );
+        pago.setMonto(dto.getMonto());
 
         pago.setMetodo(
                 dto.getMetodo()
@@ -60,3 +56,4 @@ public class PagoMapper {
                 .build();
     }
 }
+

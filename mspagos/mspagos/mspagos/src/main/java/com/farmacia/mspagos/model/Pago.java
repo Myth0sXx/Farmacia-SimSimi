@@ -2,6 +2,7 @@ package com.farmacia.mspagos.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,8 +20,8 @@ public class Pago {
     @Column(nullable = false)
     private Long ventaId;
 
-    @Column(nullable = false, precision = 10)
-    private Double monto;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal monto;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
