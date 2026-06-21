@@ -1,11 +1,11 @@
 package com.farmacia.msreportes.service.impl;
 import com.farmacia.msreportes.client.VentaClient;
 import com.farmacia.msreportes.mapper.ReporteMapper;
-import com.farmacia.msreportes.dto.ReporteResponseDTO;
+import com.farmacia.msreportes.dto.response.ReporteResponseDTO;
 import com.farmacia.msreportes.exception.ResourceNotFoundException;
 import com.farmacia.msreportes.model.Reporte;
 import com.farmacia.msreportes.repository.ReporteRepository;
-import com.farmacia.msreportes.service.ReporteService;
+import com.farmacia.msreportes.service.interfaces.ReporteService;
 import lombok.extern.slf4j.Slf4j;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;

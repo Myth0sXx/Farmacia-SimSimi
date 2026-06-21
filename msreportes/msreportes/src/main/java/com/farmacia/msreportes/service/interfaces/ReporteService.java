@@ -1,4 +1,4 @@
-package com.farmacia.msreportes.service;
+package com.farmacia.msreportes.service.interfaces;
 import com.farmacia.msreportes.dto.response.ReporteResponseDTO;
 import java.util.List;
 public interface ReporteService {

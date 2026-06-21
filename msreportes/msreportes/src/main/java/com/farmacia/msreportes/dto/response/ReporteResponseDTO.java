@@ -1,4 +1,4 @@
-package com.farmacia.msreportes.dto;
+package com.farmacia.msreportes.dto.response;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
 package com.farmacia.msreportes.mapper;
 
-import com.farmacia.msreportes.dto.ReporteResponseDTO;
+import com.farmacia.msreportes.dto.response.ReporteResponseDTO;
 import com.farmacia.msreportes.model.Reporte;
 import org.springframework.stereotype.Component;
 

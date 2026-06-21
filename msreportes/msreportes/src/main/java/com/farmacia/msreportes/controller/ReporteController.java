@@ -1,6 +1,6 @@
 package com.farmacia.msreportes.controller;
-import com.farmacia.msreportes.dto.ReporteResponseDTO;
-import com.farmacia.msreportes.service.ReporteService;
+import com.farmacia.msreportes.dto.response.ReporteResponseDTO;
+import com.farmacia.msreportes.service.interfaces.ReporteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

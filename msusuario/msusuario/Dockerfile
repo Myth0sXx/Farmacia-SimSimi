@@ -1,4 +1,9 @@
-FROM ubuntu:latest
-LABEL authors="Familia Menares"
+FROM eclipse-temurin:21-jdk
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY target/msusuario-0.0.1-SNAPSHOT.jar app.jar
+
+EXPOSE 8089
+
+ENTRYPOINT ["java","-jar","app.jar"]

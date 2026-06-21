@@ -159,32 +159,30 @@ class UsuarioServiceImplTest {
     @Test
     @DisplayName("Debe eliminar usuario")
     void eliminarUsuarioOk() {
-        // GIVEN
-        when(repository.existsById(1L)).thenReturn(true);
 
+        when(repository.findById(1L))
+                .thenReturn(Optional.of(usuario));
 
-        // WHEN
         service.eliminarUsuario(1L);
 
-
-        // THEN
-        verify(repository, times(1)).deleteById(1L);
+        verify(repository, times(1))
+                .delete(usuario);
     }
-
 
     @Test
     @DisplayName("Debe lanzar excepción al eliminar inexistente")
     void eliminarUsuarioNoExiste() {
-        // GIVEN
-        when(repository.existsById(1L)).thenReturn(false);
 
+        when(repository.findById(1L))
+                .thenReturn(Optional.empty());
 
-        // WHEN & THEN
         assertThrows(
                 ResourceNotFoundException.class,
                 () -> service.eliminarUsuario(1L)
         );
-        verify(repository, never()).deleteById(anyLong());
+
+        verify(repository, never())
+                .delete(any(Usuario.class));
     }
 
     @Test
@@ -253,8 +251,5 @@ class UsuarioServiceImplTest {
                 .save(any(Usuario.class));
     }
 }
-
-
-
 
 
