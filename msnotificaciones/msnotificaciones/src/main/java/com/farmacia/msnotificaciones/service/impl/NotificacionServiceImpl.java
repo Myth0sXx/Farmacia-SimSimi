@@ -1,10 +1,10 @@
 package com.farmacia.msnotificaciones.service.impl;
 import com.farmacia.msnotificaciones.mapper.NotificacionMapper;
-import com.farmacia.msnotificaciones.dto.NotificacionRequestDTO;
-import com.farmacia.msnotificaciones.dto.NotificacionResponseDTO;
+import com.farmacia.msnotificaciones.dto.request.NotificacionRequestDTO;
+import com.farmacia.msnotificaciones.dto.response.NotificacionResponseDTO;
 import com.farmacia.msnotificaciones.model.Notificacion;
 import com.farmacia.msnotificaciones.repository.NotificacionRepository;
-import com.farmacia.msnotificaciones.service.NotificacionService;
+import com.farmacia.msnotificaciones.service.interfaces.NotificacionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -48,5 +48,4 @@ public class NotificacionServiceImpl implements NotificacionService {
                 .toList();
     }
 }
-
 

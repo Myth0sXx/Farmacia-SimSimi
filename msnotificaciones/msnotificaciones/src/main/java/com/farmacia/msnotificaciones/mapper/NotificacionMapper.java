@@ -1,5 +1,5 @@
 package com.farmacia.msnotificaciones.mapper;
-import com.farmacia.msnotificaciones.dto.NotificacionResponseDTO;
+import com.farmacia.msnotificaciones.dto.response.NotificacionResponseDTO;
 import com.farmacia.msnotificaciones.model.Notificacion;
 import org.springframework.stereotype.Component;
 @Component

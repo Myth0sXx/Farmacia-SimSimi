@@ -1,4 +1,4 @@
-package com.farmacia.msnotificaciones.dto;
+package com.farmacia.msnotificaciones.dto.response;
 import lombok.Data;
 import java.time.LocalDateTime;
 

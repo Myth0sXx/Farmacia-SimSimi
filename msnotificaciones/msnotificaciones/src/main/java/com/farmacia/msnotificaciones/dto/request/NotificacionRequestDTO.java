@@ -1,4 +1,4 @@
-package com.farmacia.msnotificaciones.dto;
+package com.farmacia.msnotificaciones.dto.request;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
