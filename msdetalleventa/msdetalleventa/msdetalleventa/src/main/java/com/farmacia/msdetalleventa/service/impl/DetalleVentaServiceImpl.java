@@ -1,11 +1,11 @@
 package com.farmacia.msdetalleventa.service.impl;
 
-import com.farmacia.msdetalleventa.dto.DetalleVentaRequestDTO;
-import com.farmacia.msdetalleventa.dto.DetalleVentaResponseDTO;
+import com.farmacia.msdetalleventa.dto.request.DetalleVentaRequestDTO;
+import com.farmacia.msdetalleventa.dto.response.DetalleVentaResponseDTO;
 import com.farmacia.msdetalleventa.mapper.DetalleVentaMapper;
 import com.farmacia.msdetalleventa.model.DetalleVenta;
 import com.farmacia.msdetalleventa.repository.DetalleVentaRepository;
-import com.farmacia.msdetalleventa.service.DetalleVentaService;
+import com.farmacia.msdetalleventa.service.interfaces.DetalleVentaService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -97,3 +97,4 @@ public class DetalleVentaServiceImpl
                 .toList();
     }
 }
+

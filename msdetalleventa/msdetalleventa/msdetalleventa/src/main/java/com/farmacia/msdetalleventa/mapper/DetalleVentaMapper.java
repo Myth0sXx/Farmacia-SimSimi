@@ -1,7 +1,7 @@
 package com.farmacia.msdetalleventa.mapper;
 
-import com.farmacia.msdetalleventa.dto.DetalleVentaRequestDTO;
-import com.farmacia.msdetalleventa.dto.DetalleVentaResponseDTO;
+import com.farmacia.msdetalleventa.dto.request.DetalleVentaRequestDTO;
+import com.farmacia.msdetalleventa.dto.response.DetalleVentaResponseDTO;
 import com.farmacia.msdetalleventa.model.DetalleVenta;
 
 import org.springframework.stereotype.Component;

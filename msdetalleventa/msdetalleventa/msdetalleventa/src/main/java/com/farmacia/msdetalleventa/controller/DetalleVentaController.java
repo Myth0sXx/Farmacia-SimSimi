@@ -1,7 +1,8 @@
 package com.farmacia.msdetalleventa.controller;
 
-import com.farmacia.msdetalleventa.dto.*;
-import com.farmacia.msdetalleventa.service.DetalleVentaService;
+import com.farmacia.msdetalleventa.dto.request.DetalleVentaRequestDTO;
+import com.farmacia.msdetalleventa.dto.response.DetalleVentaResponseDTO;
+import com.farmacia.msdetalleventa.service.interfaces.DetalleVentaService;
 
 import jakarta.validation.Valid;
 
@@ -58,3 +59,4 @@ public class DetalleVentaController {
         );
     }
 }
+

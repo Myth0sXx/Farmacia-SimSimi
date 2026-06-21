@@ -1,6 +1,7 @@
-package com.farmacia.msdetalleventa.service;
+package com.farmacia.msdetalleventa.service.interfaces;
 
-import com.farmacia.msdetalleventa.dto.*;
+import com.farmacia.msdetalleventa.dto.request.DetalleVentaRequestDTO;
+import com.farmacia.msdetalleventa.dto.response.DetalleVentaResponseDTO;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.farmacia.msdetalleventa.dto;
+package com.farmacia.msdetalleventa.dto.response;
 import lombok.*;
 
 @Getter
