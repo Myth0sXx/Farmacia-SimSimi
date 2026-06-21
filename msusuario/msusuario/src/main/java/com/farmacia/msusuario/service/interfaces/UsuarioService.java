@@ -10,3 +10,4 @@ public interface UsuarioService {
     UsuarioResponseDTO actualizarUsuario(Long id, UsuarioRequestDTO dto);
     void eliminarUsuario(Long id);
 }
+

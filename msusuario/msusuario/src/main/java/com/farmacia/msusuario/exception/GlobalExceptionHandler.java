@@ -6,57 +6,76 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
 
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?> notFound(ResourceNotFoundException ex) {
+    public ResponseEntity<Map<String, Object>> notFound(
+            ResourceNotFoundException ex) {
 
-        log.warn("Not found: {}", ex.getMessage());
+        log.warn("No encontrado: {}", ex.getMessage());
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(Map.of(
-                        "error", "No encontrado",
-                        "mensaje", ex.getMessage()
-                ));
+        Map<String, Object> response = new HashMap<>();
+        response.put("error", "No encontrado");
+        response.put("mensaje", ex.getMessage());
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(response);
     }
 
     @ExceptionHandler(DuplicateEmailException.class)
-    public ResponseEntity<?> duplicate(DuplicateEmailException ex) {
+    public ResponseEntity<Map<String, Object>> duplicate(
+            DuplicateEmailException ex) {
 
-        log.warn("Duplicado: {}", ex.getMessage());
+        log.warn("Email duplicado: {}", ex.getMessage());
 
-        return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(Map.of(
-                        "error", "Conflicto",
-                        "mensaje", ex.getMessage()
-                ));
+        Map<String, Object> response = new HashMap<>();
+        response.put("error", "Conflicto");
+        response.put("mensaje", ex.getMessage());
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(response);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> validation(MethodArgumentNotValidException ex) {
+    public ResponseEntity<Map<String, Object>> validation(
+            MethodArgumentNotValidException ex) {
 
-        Map<String, String> errors = new HashMap<>();
+        Map<String, Object> errors = new HashMap<>();
 
-        ex.getBindingResult().getFieldErrors()
-                .forEach(err ->
-                        errors.put(err.getField(), err.getDefaultMessage())
+        ex.getBindingResult()
+                .getFieldErrors()
+                .forEach(error ->
+                        errors.put(
+                                error.getField(),
+                                error.getDefaultMessage()
+                        )
                 );
 
-        return ResponseEntity.badRequest().body(errors);
+        return ResponseEntity
+                .badRequest()
+                .body(errors);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> general(Exception ex) {
+    public ResponseEntity<Map<String, Object>> general(
+            Exception ex) {
 
-        log.error("Error interno", ex);
+        log.error("Error interno del servidor", ex);
 
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(Map.of("error", "Error interno del servidor"));
+        Map<String, Object> response = new HashMap<>();
+        response.put("error", "Error interno del servidor");
+
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(response);
     }
 }
-
-
 

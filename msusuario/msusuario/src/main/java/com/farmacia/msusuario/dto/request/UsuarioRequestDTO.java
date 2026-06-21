@@ -35,3 +35,4 @@ public class UsuarioRequestDTO {
     @NotNull(message = "El rol es obligatorio")
     private Rol rol;
 }
+

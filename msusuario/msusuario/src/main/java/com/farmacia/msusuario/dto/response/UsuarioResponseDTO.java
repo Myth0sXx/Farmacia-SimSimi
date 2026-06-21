@@ -13,4 +13,3 @@ public class UsuarioResponseDTO {
     private String email;
     private Rol rol;
 }
-

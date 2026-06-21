@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Slf4j
@@ -34,7 +35,10 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
 
         Usuario usuario = mapper.toEntity(dto);
-        usuario.setPassword(passwordEncoder.encode(dto.getPassword()));
+
+        usuario.setPassword(
+                passwordEncoder.encode(dto.getPassword())
+        );
 
         Usuario guardado = repository.save(usuario);
 
@@ -50,7 +54,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         Usuario usuario = repository.findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Usuario no encontrado"));
+                        new ResourceNotFoundException(
+                                "Usuario no encontrado"
+                        ));
 
         return mapper.toDTO(usuario);
     }
@@ -67,26 +73,44 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public UsuarioResponseDTO actualizarUsuario(Long id, UsuarioRequestDTO dto) {
+    public UsuarioResponseDTO actualizarUsuario(
+            Long id,
+            UsuarioRequestDTO dto
+    ) {
+
+        log.info("Actualizando usuario {}", id);
 
         Usuario usuario = repository.findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Usuario no encontrado"));
+                        new ResourceNotFoundException(
+                                "Usuario no encontrado"
+                        ));
 
         if (!usuario.getEmail().equals(dto.getEmail())
                 && repository.existsByEmail(dto.getEmail())) {
-            throw new DuplicateEmailException("Email ya en uso");
+
+            throw new DuplicateEmailException(
+                    "Email ya en uso"
+            );
         }
 
         usuario.setNombre(dto.getNombre());
         usuario.setEmail(dto.getEmail());
         usuario.setRol(dto.getRol());
 
-        if (dto.getPassword() != null && !dto.getPassword().isBlank()) {
-            usuario.setPassword(passwordEncoder.encode(dto.getPassword()));
+        if (dto.getPassword() != null
+                && !dto.getPassword().isBlank()) {
+
+            usuario.setPassword(
+                    passwordEncoder.encode(
+                            dto.getPassword()
+                    )
+            );
         }
 
         Usuario actualizado = repository.save(usuario);
+
+        log.info("Usuario {} actualizado correctamente", id);
 
         return mapper.toDTO(actualizado);
     }
@@ -96,13 +120,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         log.info("Eliminando usuario {}", id);
 
-        if (!repository.existsById(id)) {
-            throw new ResourceNotFoundException("Usuario no encontrado");
-        }
+        Usuario usuario = repository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "Usuario no encontrado"
+                        ));
 
-        repository.deleteById(id);
+        repository.delete(usuario);
+
+        log.info("Usuario {} eliminado correctamente", id);
+
     }
 }
-
 
 

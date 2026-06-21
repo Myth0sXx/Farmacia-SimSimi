@@ -28,9 +28,9 @@ public class Usuario {
     @Column(nullable = false, length = 20)
     private Rol rol;
 
-    @Column(nullable = false)
-    private LocalDateTime createdAt;
 
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     @PrePersist
@@ -43,4 +43,6 @@ public class Usuario {
         this.updatedAt = LocalDateTime.now();
     }
 }
+
+
 

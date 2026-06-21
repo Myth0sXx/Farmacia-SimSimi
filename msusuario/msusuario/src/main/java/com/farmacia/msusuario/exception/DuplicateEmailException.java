@@ -6,3 +6,4 @@ public class DuplicateEmailException extends RuntimeException {
     }
 }
 
+
