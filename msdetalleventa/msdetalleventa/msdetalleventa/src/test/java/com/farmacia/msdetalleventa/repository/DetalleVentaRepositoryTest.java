@@ -34,4 +34,3 @@ class DetalleVentaRepositoryTest {
                 resultado.getFirst().getVentaId());
     }
 }
-

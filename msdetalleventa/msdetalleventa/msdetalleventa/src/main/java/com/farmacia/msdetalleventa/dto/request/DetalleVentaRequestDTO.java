@@ -1,6 +1,6 @@
 package com.farmacia.msdetalleventa.dto.request;
 import jakarta.validation.constraints.*;
-import lombok.Data;
+        import lombok.Data;
 
 @Data
 public class DetalleVentaRequestDTO {
@@ -22,3 +22,4 @@ public class DetalleVentaRequestDTO {
     @Positive(message = "El precio debe ser mayor a 0")
     private Double precioUnitario;
 }
+
