@@ -1,35 +1,35 @@
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-
-  instance:
-    prefer-ip-address: true
+server:
+  port: 8089
 
 spring:
   application:
-    name: msusuario
+    name: mscliente
 
   datasource:
-    url: jdbc:mysql://localhost:3306/db_ms_usuarios_vm
+    url: jdbc:mysql://localhost:3306/db_ms_cliente_vm
     username: root
     password:
-    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
-
     show-sql: true
-
     properties:
       hibernate:
         format_sql: true
 
-server:
-  port: 8089
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+  instance:
+    prefer-ip-address: true
+
+logging:
+  level:
+    root: INFO
+    com.farmacia: DEBUG
 
 springdoc:
   api-docs:
@@ -37,9 +37,3 @@ springdoc:
 
   swagger-ui:
     path: /swagger-ui.html
-    operationsSorter: method
-
-logging:
-  level:
-    com.farmacia.msusuario: DEBUG
-    root: INFO

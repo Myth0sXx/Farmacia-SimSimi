@@ -5,6 +5,7 @@ import com.farmacia.msrecetas.dto.validar.ValidarRecetaDTO;
 
 import java.util.List;
 
+
 public interface RecetaService {
     RecetaResponseDTO crearReceta(RecetaRequestDTO dto);
     List<RecetaResponseDTO> listarRecetas();

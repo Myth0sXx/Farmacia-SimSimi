@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: ms-recetas
+    name: msrecetas
   datasource:
     url: jdbc:mysql://localhost:3306/db_ms_recetas_vm?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
@@ -17,7 +17,7 @@ spring:
       hibernate:
         format_sql: true
 
-# Integración obligatoria con el Servidor de Descubrimiento Eureka
+
 eureka:
   client:
     service-url:

@@ -7,7 +7,7 @@ import com.farmacia.msrecetas.mapper.RecetaMapper;
 import com.farmacia.msrecetas.model.EstadoReceta;
 import com.farmacia.msrecetas.model.Receta;
 import com.farmacia.msrecetas.repository.RecetaRepository;
-import com.farmacia.msrecetas.service.interfaces.RecetaService;
+import com.farmacia.msrecetas.service.intefaces.RecetaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

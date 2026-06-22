@@ -35,7 +35,6 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- common managed dependencies -->
       <dependency>
         <groupId>org.springdoc</groupId>
         <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -77,6 +76,8 @@
   </build>
 
   <modules>
+    <module>eurekaserver/eurekaserver</module>
+
     <module>msventas/msventas/msventas</module>
     <module>msdetalleventa/msdetalleventa/msdetalleventa</module>
     <module>msmedicamentos/msmedicamentos/msmedicamentos</module>

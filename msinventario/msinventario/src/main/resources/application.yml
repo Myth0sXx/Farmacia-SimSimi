@@ -1,6 +1,9 @@
+server:
+  port: 8086  # Puerto físico asignado a inventario
+
 spring:
   application:
-    name: ms-inventario  # Ajustado al estándar del ecosistema Farmacia VM
+    name: msinventario
   datasource:
     url: jdbc:mysql://localhost:3306/db_ms_inventario_vm
     username: root
@@ -17,15 +20,12 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
 
-server:
-  port: 8086  # Puerto físico asignado a inventario
-
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
   instance:
     prefer-ip-address: true
 
@@ -40,10 +40,5 @@ springdoc:
 logging:
   level:
     root: INFO
-    com:
-      farmacia:
-        msinventario: DEBUG  # Cambiar según el nombre exacto de tu paquete base
-    org:
-      hibernate:
-        SQL: DEBUG
-
+    com.farmacia.msinventario: DEBUG
+    org.hibernate.SQL: DEBUG

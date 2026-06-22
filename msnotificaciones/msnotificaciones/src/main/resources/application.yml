@@ -1,7 +1,6 @@
 eureka:
   instance:
     prefer-ip-address: true
-
   client:
     register-with-eureka: true
     fetch-registry: true
@@ -32,7 +31,6 @@ server:
 springdoc:
   api-docs:
     path: /v3/api-docs
-
   swagger-ui:
     path: /swagger-ui.html
     operationsSorter: method

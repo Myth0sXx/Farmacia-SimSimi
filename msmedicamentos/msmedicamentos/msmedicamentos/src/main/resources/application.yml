@@ -1,12 +1,12 @@
 server:
-  port: 8084
+  port: 8091
 
 spring:
   application:
-    name: mspagos
+    name: msmedicamentos # <-- Estandarizado sin guion
 
   datasource:
-    url: jdbc:mysql://localhost:3306/db_ms_pagos_vm?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/db_ms_medicamentos_vm
     username: root
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -28,16 +28,14 @@ eureka:
   instance:
     prefer-ip-address: true
 
+logging:
+  level:
+    root: INFO
+    com.farmacia: DEBUG
+
 springdoc:
   api-docs:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
     operationsSorter: method
-
-logging:
-  level:
-    root: INFO
-    com.farmacia.mspagos: DEBUG
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
